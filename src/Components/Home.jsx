@@ -5,7 +5,7 @@ import { addPaste, fetchPastes, updatePaste } from '../Reducer/pasteSlice';
 
 import './Home.css'
 import toast from 'react-hot-toast';
-import copy from '../assets/copy.png'
+import copy from '../assets/Copy.png'
 const Home = () => {
     const [title, setTitle] = useState('');
     const [value, setValue] = useState('');
