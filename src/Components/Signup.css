@@ -1,0 +1,136 @@
+#signup{
+    background-color: rgba(255, 255, 255, 0.276);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:40px 80px;
+    gap:20px;
+    border-radius: 20px;
+
+}
+
+#signup-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#form input{
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: rgb(250, 235, 215);
+    outline: none;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+
+#submit:active{
+    transform: scale(0.9);
+}
+
+#submit{
+    background-color: green;
+    padding: 3px 8px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+#link{
+    color: skyblue;
+}
+
+#otp-veri-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+#otp-veri{
+    background-color: rgba(255, 255, 255, 0.276);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:40px 80px;
+    gap:20px;
+    border-radius: 20px;
+    
+}
+#otp-veri h2{
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0);
+}
+#otp-veri p{
+    font-size: 1.2rem;
+}
+#otp-veri p span{
+    margin-left: 5px;
+    font-style: italic;
+    font-weight: bolder;
+    color: black;
+}
+.otp-input{
+    display: flex;
+    gap: 20px;
+
+}
+.otp-input input{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 2.5rem;
+    background-color: rgb(250, 235, 215);
+    outline: none;
+    border-radius: 15px;
+    border: 2px solid purple;
+}
+#btn{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+}
+#verify-otp-btn{
+    display: flex;
+    gap:20px;
+}
+
+#resend{
+    background-color: yellow;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: black;
+    border: 2px solid purple;
+}
+
+#verify{
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 1.3rem;
+    color: antiquewhite;
+    background-color: rgb(0, 110, 255);
+    border: 2px solid purple;
+}
+#changeEmail{
+    background-color: green;
+    border: 2px solid purple;
+    border-radius: 12px;
+    padding:15px 30px;
+    color: aliceblue;
+    font-size: 1.4rem;
+}

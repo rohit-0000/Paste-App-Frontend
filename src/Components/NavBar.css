@@ -1,0 +1,127 @@
+#Nav-Container{
+    min-width: 100vw;
+    /* background-color: #1f1f1f; */
+    background-color: rgb(0, 0, 0);
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+}
+
+#Nav{
+    min-width: 300px;
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 55px;
+}
+
+.nav-item{
+    color: aliceblue;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+}
+.nav-item-active{
+    color: aliceblue;
+    text-decoration-color: black;
+    text-decoration-thickness: 5px ;
+    text-underline-offset: 10px;
+    background-color: #1f1f1f;
+    padding: 5px 10px;
+    align-self: end;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 1.8rem;
+}
+#logout-btn:active{
+    transform: scale(0.92);
+}
+
+#user-img{
+    width: 50px;
+    height:50px;
+    cursor: pointer;
+}
+#user-img:active{
+    transform: scale(0.9);
+}
+
+
+#user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:4px;
+    position: absolute;
+    right:20px;
+}
+
+.user-option{
+    display: none;
+}
+.user-option-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    position: absolute;
+    margin-top: 60px;
+    right: 0px;
+    padding: 20px;
+    border-radius: 15px;
+    z-index: 1000;
+
+    width: 250px;
+
+    background-color: rgba(0, 0, 0, 0.69);
+    box-shadow: 0px 0px 10px white;
+    backdrop-filter: blur(5px);
+}
+
+
+#logout-btn{
+    right:20px;
+    padding:5px 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: red;
+    border: none;
+    font-size: 1.3rem;
+}
+
+#name{
+    font-size: 2.7rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.71);
+    min-width: 200px;
+    text-align: center;
+}
+
+#profile-btn{
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    gap:10px;
+    border: none;
+    font-size: 1.5rem;
+    padding:15px 30px ;
+    border-radius:20px;
+    margin-bottom: 20px;
+}
+#profile-btn:hover{
+    border:2px solid rgba(255, 255, 255, 0.344);
+}
+#profile-btn img{
+    width: 30px;
+}

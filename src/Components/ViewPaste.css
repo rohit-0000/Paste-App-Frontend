@@ -1,0 +1,59 @@
+#view-Paste-container{
+    margin-top: 100px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 85vh;
+}
+#view-paste-title{
+    display: flex;
+    width: 80%;
+    gap:5px;
+}
+#title-input{
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px 0px 0px 10px;
+    font-size: 1.5rem;
+    width: 70vw;
+}
+#Create-new{
+    font-size: 1.2rem;
+    color: black;
+    background-color: white;
+    border-radius: 0px 10px 10px 0px;
+    border: 2px solid black;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+#temp{
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+#red{
+    background-color: rgb(182, 1, 1);
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+}
+
+#green{
+    background-color: green;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+}
+#yellow{
+    background-color: rgb(198, 182, 2);
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+}
+

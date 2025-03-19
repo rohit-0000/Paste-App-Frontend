@@ -1,0 +1,166 @@
+#login{
+    background-color: rgba(255, 255, 255, 0.276);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:40px 80px;
+    gap:20px;
+    border-radius: 20px;
+
+}
+
+#login-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#form input{
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: rgb(250, 235, 215);
+    outline: none;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+
+#submit:active{
+    transform: scale(0.9);
+}
+
+#submit{
+    background-color: green;
+    padding: 3px 8px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    
+    border: none;
+    color: white;
+}
+
+#link{
+    color: skyblue;
+}
+
+#forgot{
+    cursor: pointer;
+}
+#forgot:hover{
+    color: skyblue;
+}
+#forgot:active{
+    transform: scale(0.9);
+}
+
+#forgotPass-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+#forgotPass-container h1{
+    font-size: 2rem;
+}
+#forgotPass{
+    background-color: rgba(255, 255, 255, 0.276);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:40px 80px;
+    gap:50px;
+    border-radius: 20px;
+}
+
+#forgotPass-otp-container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap:50px;
+
+    background-color: rgba(240, 248, 255, 0.175);
+    padding: 50px 50px;
+    border-radius: 40px;
+}
+
+.otp-input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    background-color: rgba(240, 248, 255, 0.175);
+    padding: 50px 50px;
+    border-radius: 40px;
+}
+#forgotPass-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+#forgotPass-input input{
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: rgb(250, 235, 215);
+    outline: none;
+}
+
+#get-otp{
+    background-color: green;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border: 2px solid purple;
+    color: white;   
+}
+#reset{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.276);
+    align-items: center;
+    justify-content: center;
+    padding:40px 80px;
+    gap:20px;
+    border-radius: 20px;
+}
+#resetPass{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+#resetPass input{
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: rgb(250, 235, 215);
+    outline: none;
+}
+#reset-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+button:active{
+    transform: scale(0.9);
+}
