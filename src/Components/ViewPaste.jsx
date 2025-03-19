@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import './ViewPaste.css'
 import { NavLink } from 'react-router-dom'
 
-import copy from '../assets/copy.png'
+import copy from '../assets/Copy.png'
 import { fetchPastes } from '../Reducer/pasteSlice';
   const ViewPaste = () => {
   const { id } = useParams();
