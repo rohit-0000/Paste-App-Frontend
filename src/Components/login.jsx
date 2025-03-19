@@ -26,7 +26,7 @@ const Login = () => {
         localStorage.setItem("token", response.data);
         toast.success("Login Successful 👍");
         navigate("/home");
-        window.location.reload();
+        //window.location.reload();
       }
     } catch (e) {
       if (e.response && e.response.status === 400) {
