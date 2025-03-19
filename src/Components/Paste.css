@@ -24,13 +24,13 @@
     border-radius: 25px;
     width: 80%;
     border: 2px solid white;
-    background-color: black;
+    background-color:  rgba(3, 0, 9, 0.946);
     margin-bottom: 20px;
 }
 
 #pastes-box{
     border: 1px solid white;
-    background-color: black;
+    background-color: rgba(3, 0, 9, 0.747);
     width: 80vw;
     height:130px;
     border-radius: 20px;

@@ -6,7 +6,7 @@
 }
 body{
   /* background-color: black; */
-  background-color: #1f1f1f;
+  background-color: #262329;
   color: aliceblue;
   display: flex;
   justify-content: center;
@@ -15,4 +15,12 @@ body{
   position: relative;
   overflow-x: hidden;
 
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(183, 183, 183);
+  border-radius: 20px;
 }

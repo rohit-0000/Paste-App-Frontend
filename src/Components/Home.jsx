@@ -109,7 +109,7 @@ const Home = () => {
     return (
         <div id="home-container">
             <div id='title'>
-                <input id='title-input'
+                <input id='title-input-home'
                     required
                     type='text'
                     placeholder='Enter title here'
