@@ -5,7 +5,8 @@ import axios from 'axios';
 
 const initialState = {
     pastes: [],
-    user:[],
+    user:{},
+    loading:false,
 };
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -51,6 +52,8 @@ export const addPaste = createAsyncThunk('paste/addPaste',
     }
 )
 
+
+
 export const updatePaste = createAsyncThunk('paste/updatePaste', async (paste) => {
     const token = localStorage.getItem('token');
     const response = await axios.put(`${API_URL}/paste/${paste._id}`, paste, {
@@ -83,11 +86,6 @@ export const deletePastes = createAsyncThunk('paste/deletePaste', async (pasteId
 
 
 
-// export const changeName=createAsyncThunk('user/changeName',async()=>{
-//     const token=localStorage.getItem('token');
-//     const response=await axios.put()
-// })
-
 export const pasteSlice = createSlice({
     name: 'paste',
     initialState,
@@ -95,7 +93,14 @@ export const pasteSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchPastes.fulfilled, (state, action) => {
+                state.loading=false;
                 state.pastes = action.payload;
+            })
+            .addCase(fetchPastes.pending,(state,action)=>{
+                state.loading=true;
+            })
+            .addCase(fetchPastes.rejected,(state,action)=>{
+                state.loading=false;
             })
             .addCase(addPaste.fulfilled,(state,action)=>{
                 // state.pastes.push(action.payload);
@@ -117,6 +122,12 @@ export const pasteSlice = createSlice({
             })
             .addCase(fetchUser.fulfilled,(state,action)=>{
                 state.user=action.payload;
+                state.loading=false;
+            }).addCase(fetchUser.pending,(state,action)=>{
+                state.loading=true;
+            })
+            .addCase(fetchUser.rejected,(state,action)=>{
+                state.loading=false;
             })
     }
 })

@@ -50,9 +50,7 @@ const Home = () => {
         },);
 
     const allPastes = useSelector((state) => state.paste.pastes);
-    useEffect(() => {
-        dispatch(fetchPastes());
-    }, [dispatch]);
+
     useEffect(() => {
         if (pasteId) {
             const paste = allPastes.find((p) => p._id === pasteId);

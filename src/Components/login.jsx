@@ -16,7 +16,9 @@ const Login = () => {
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const [sendOtp, setSendOtp] = useState("");
   const [resetPass, SetResetPass] = useState(false);
+  const [loading,setLoading]=useState(false);
   async function handleSubmit(e) {
+    setLoading(true);
     e.preventDefault();
     let response = null;
     try {
@@ -39,6 +41,7 @@ const Login = () => {
         toast.error("An error occurred");
       }
     }
+    setLoading(false);
   }
 
   function otpInput(element, index) {
@@ -66,6 +69,7 @@ const Login = () => {
   }
   async function handleGetOtp(e) {
     e.preventDefault();
+    setLoading(true);
     const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString(); // Change: Generate OTP here
     setSendOtp(generatedOtp); // Change: Set OTP state
     let response = null;
@@ -99,6 +103,7 @@ const Login = () => {
         toast.error("Failed to send OTP. Please try again.");
       }
     }
+    setLoading(false);
   }
 
   async function handleEmailVerify(e) {
@@ -116,6 +121,7 @@ const Login = () => {
   }
 
   async function handleChangePass() {
+    setLoading(true);
     let response = null;
     if (password == Repassword) {
       try {
@@ -143,7 +149,9 @@ const Login = () => {
     } else {
       toast.error("Passsword do not Match");
     }
+    setLoading(false);
   }
+  
   if (forgotPass) {
     return (
       <div id="forgotPass-container">
@@ -167,8 +175,8 @@ const Login = () => {
                   required
                 />
             </div>
-              <button id="get-otp">
-                Get OTP
+              <button id="get-otp" disabled={loading}>
+                {loading? "Loading":"Get OTP"}
               </button>
           </form>
 
@@ -186,8 +194,8 @@ const Login = () => {
                 />
               ))}
             </div>
-            <button id="verify" onClick={handleEmailVerify}>
-              Verify
+            <button id="verify" onClick={handleEmailVerify}disabled={loading}>
+              {loading? "Loading":"Verify"}
             </button>
           </div>
         </div>
@@ -215,8 +223,8 @@ const Login = () => {
               onChange={(e) => setRePassword(e.target.value)}
               required
             />
-            <button id="submit" type="Submit" onClick={handleChangePass}>
-              Change Password
+            <button id="submit" type="Submit" onClick={handleChangePass} disabled={loading}>
+              {loading? "Loading":"Change Password"}
             </button>
           </form>
         </div>
@@ -245,8 +253,8 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button id="submit" type="submit">
-              Login
+            <button id="submit" type="submit" disabled={loading}>
+              {loading? "Loading":"Login"}
             </button>
           </form>
           <p id="forgot" onClick={handleForgotPassword}>

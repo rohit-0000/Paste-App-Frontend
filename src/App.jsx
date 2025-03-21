@@ -8,6 +8,10 @@ import Login from "./Components/login";
 import Signup from "./Components/Signup";
 import Login_signup from "./Components/login_signup";
 import Profile from "./Components/Profile";
+import Loading from "./Components/Loading";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUser } from "./Reducer/pasteSlice";
+import { useEffect } from "react";
 
 function ProtectedRoute(props) {
   if (!props.token) {
@@ -17,8 +21,7 @@ function ProtectedRoute(props) {
 }
 
 function App() {
-  let token = localStorage.getItem("token");
-
+  const token = localStorage.getItem("token");
   const router = createBrowserRouter([
     {
       path: "/",
@@ -99,9 +102,18 @@ function App() {
     },
   ]);
 
+  const loading=useSelector((state)=>state.paste.loading);
+  
   return (
     <div>
-      <RouterProvider router={router} />
+      {
+        loading? <div>
+          <RouterProvider router={router} />
+          <Loading/>
+        </div>
+        :
+        <RouterProvider router={router} />
+      } 
     </div>
   );
 }

@@ -1,0 +1,93 @@
+
+.Loading-container{
+    width: 100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:60px;
+    top:0px;
+    left:0px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.654);
+    backdrop-filter: blur(5px);
+}
+
+
+
+.circle{
+    width:20px;
+    height:20px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    animation: circle .7s alternate infinite ease;
+}
+#circle1{
+    left:40%;
+}
+#circle2{
+    left:50%;
+}
+#circle3{
+    left:60%;
+}
+@keyframes circle{
+    0%{
+        bottom: 50vh;
+        height:5px;
+    }
+    40%{
+        height:20px;
+        border-radius: 50%;
+    }
+    100%{
+        bottom: 60vh;
+        transform: scale(1.5);
+    }
+}
+
+.shadow{
+    width:20px;
+    height:4px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.482);
+    position: absolute;
+    filter: blur(1.5px);
+    animation: shadow .7s alternate infinite ease;
+}
+#shadow1{
+    left:40%;
+    bottom: 50vh;
+}
+#shadow2{
+    left:50%;
+    bottom: 50vh;
+}
+#shadow3{
+    left:60%;
+    bottom: 50vh;
+}
+@keyframes shadow{
+    0%{
+        transform: scaleX(1.5);
+    }
+    40%{
+        opacity: .7;
+    }
+    100%{
+        opacity: .4;
+        transform: scaleX(.5);
+        
+    }
+}
+
+
+.Loading-container p{
+    
+    font-size: 2rem;
+    font-weight: bolder;
+    align-self: center;
+}
+
+

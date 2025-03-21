@@ -3,6 +3,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css'
+import { set } from 'react-hook-form';
 
 const Signup = () => {
     const [userName, setUsername] = useState('');
@@ -14,14 +15,16 @@ const Signup = () => {
     const navigate = useNavigate();
     const [sendOtp, setSendOtp] = useState("");
     const [otp, setOtp] = useState(new Array(6).fill(""));
-
+    const API_URL = import.meta.env.VITE_API_URL;
+    const [loading,setLoading]=useState(false);
     async function handleSubmit(e) {
+        setLoading(true);
         e.preventDefault();
         const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString(); // Change: Generate OTP here
         setSendOtp(generatedOtp); // Change: Set OTP state
 
         try {
-            await axios.post(`${process.env.API_URL}/email/send`, {
+            await axios.post(`${API_URL}/email/send`, {
                 to: email,
                 subject: "Your One-Time Password (OTP) for Account Verification",
                 body: `Dear ${name},
@@ -42,15 +45,20 @@ const Signup = () => {
         } catch (error) {
             toast.error('Failed to send OTP. Please try again.');
         }
+        setTimeout(() => {
+            
+            setLoading(false);
+        }, 5000);
     }
 
     async function handleEmailVerify(e) {
+        setLoading(true);
         e.preventDefault();
 
         if (sendOtp === otp.join("")) { // Change: Compare concatenated OTP array
             try {
                 if (password === Repassword) {
-                    const response = await axios.post(`${process.env.API_URL}/public/signup`, { userName: userName, password: password, name: name, email: email });
+                    const response = await axios.post(`${API_URL}/public/signup`, { userName: userName, password: password, name: name, email: email });
                     if (response.status === 201) { // i.e created
                         toast.success('Signup Successful 🥳');
                         navigate('/');
@@ -69,6 +77,7 @@ const Signup = () => {
             console.error(otp.join("") + " " + sendOtp)
             toast.error("Incorrect OTP");
         }
+        setLoading(false);
     }
 
     function otpInput(element, index) {
@@ -116,7 +125,7 @@ const Signup = () => {
                             <button id="resend" onClick={handleSubmit}>ReSend OTP</button>
                             <button id="verify" onClick={handleEmailVerify}>Verify</button>
                         </div>
-                        <button id="changeEmail"onClick={() => SetverifiedEmail(false)}>Change Email id</button>
+                        <button id="changeEmail"onClick={() => SetverifiedEmail(false) } disabled={loading}>{loading? "Loading": "Change Email id"}</button>
                     </div>
                 </div>
             </div>
@@ -136,7 +145,7 @@ const Signup = () => {
                         <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
 
                         <input type='password' placeholder='Re-Enter Password' value={Repassword} onChange={(e) => setRePassword(e.target.value)} required />
-                        <button id='submit' type='Submit'>Signup</button>
+                        <button id='submit' type='Submit' disabled={loading}>{loading? "Loading": "Signup"}</button>
                     </form>
 
                     <p>Already have an account? <Link id="link" to='/'>Login</Link></p>

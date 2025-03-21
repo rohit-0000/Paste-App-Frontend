@@ -12,7 +12,6 @@ const Profile = () => {
   const [oldPass, setOldPass] = useState("");
   const dispatch = useDispatch();
   const [name1, setName] = useState("");
-
   useEffect(() => {
     if (user) {
       setName(user.name || ""); // Initialize state with user name

@@ -20,9 +20,7 @@ const NavBar = () => {
     navigate('/');
     toast.success("Logout 👍");
     
-    // setTimeout(() => {
       window.location.reload();
-    // }, 2000);
   };
 
   function handleUserSetting(){
@@ -30,8 +28,10 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
+    if (Object.keys(user).length === 0) { 
+        dispatch(fetchUser());
+    }
+}, [dispatch]);
 
 
   useEffect(() => {
@@ -55,7 +55,6 @@ const NavBar = () => {
       <div id='Nav'>
         <NavLink className={({isActive})=>isActive? "nav-item-active" : "nav-item"}  to="/home">Home</NavLink>
         <NavLink className={({isActive})=>isActive? "nav-item-active" : "nav-item"} to="/pastes">Pastes</NavLink>
-        {/* <NavLink className={({isActive})=>isActive? "nav-item-active" : "nav-item"} to="/profile">Profile</NavLink> */}
 
 
         <div id='user' ref={userRef}>
