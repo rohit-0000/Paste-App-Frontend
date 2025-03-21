@@ -8,13 +8,13 @@ const initialState = {
     user:[],
 };
 
-
+const API_URL = import.meta.env.VITE_API_URL;
 //get all pastes
 export const fetchPastes = createAsyncThunk(
     'paste/fetchPastes',
     async () => {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8080/paste',
+        const response = await axios.get(`${API_URL}/paste`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -27,7 +27,7 @@ export const fetchPastes = createAsyncThunk(
 
 export const fetchUser =createAsyncThunk('paste/fetchUser',async ()=>{
     const token=localStorage.getItem('token');
-    const response=await axios.get('http://localhost:8080/user/detail',
+    const response=await axios.get(`${API_URL}/user/detail`,
         {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -40,7 +40,7 @@ export const fetchUser =createAsyncThunk('paste/fetchUser',async ()=>{
 export const addPaste = createAsyncThunk('paste/addPaste',
     async (paste) => {
         const token = localStorage.getItem('token');
-        const response = await axios.post('http://localhost:8080/paste', paste, {
+        const response = await axios.post(`${API_URL}/paste`, paste, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -53,7 +53,7 @@ export const addPaste = createAsyncThunk('paste/addPaste',
 
 export const updatePaste = createAsyncThunk('paste/updatePaste', async (paste) => {
     const token = localStorage.getItem('token');
-    const response = await axios.put(`http://localhost:8080/paste/${paste._id}`, paste, {
+    const response = await axios.put(`${API_URL}/paste/${paste._id}`, paste, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -63,7 +63,7 @@ export const updatePaste = createAsyncThunk('paste/updatePaste', async (paste) =
 
 export const updateUser=createAsyncThunk('paste/updateUser',async(user)=>{
     const token = localStorage.getItem('token');
-    const response = await axios.put(`http://localhost:8080/user`, user, {
+    const response = await axios.put(`${API_URL}/user`, user, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -73,7 +73,7 @@ export const updateUser=createAsyncThunk('paste/updateUser',async(user)=>{
 
 export const deletePastes = createAsyncThunk('paste/deletePaste', async (pasteId) => {
     const token = localStorage.getItem('token');
-    await axios.delete(`http://localhost:8080/paste/id/${pasteId}`, {
+    await axios.delete(`${API_URL}/paste/id/${pasteId}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }

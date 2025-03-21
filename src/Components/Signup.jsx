@@ -21,7 +21,7 @@ const Signup = () => {
         setSendOtp(generatedOtp); // Change: Set OTP state
 
         try {
-            await axios.post('http://localhost:8080/email/send', {
+            await axios.post(`${process.env.API_URL}/email/send`, {
                 to: email,
                 subject: "Your One-Time Password (OTP) for Account Verification",
                 body: `Dear ${name},
@@ -50,7 +50,7 @@ const Signup = () => {
         if (sendOtp === otp.join("")) { // Change: Compare concatenated OTP array
             try {
                 if (password === Repassword) {
-                    const response = await axios.post('http://192.168.52.13:8080/public/signup', { userName: userName, password: password, name: name, email: email });
+                    const response = await axios.post(`${process.env.API_URL}/public/signup`, { userName: userName, password: password, name: name, email: email });
                     if (response.status === 201) { // i.e created
                         toast.success('Signup Successful 🥳');
                         navigate('/');

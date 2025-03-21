@@ -4,11 +4,13 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import "./login.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Login = () => {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [Repassword, setRePassword] = useState("");
   const [email, SetEmail] = useState("");
+  const [verify,SetVerify] = useState(false);
   const navigate = useNavigate();
   const [forgotPass, SetForgotPass] = useState(false);
   const [otp, setOtp] = useState(new Array(6).fill(""));
@@ -18,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     let response = null;
     try {
-      response = await axios.post("http://localhost:8080/public/login", {
+      response = await axios.post(`${API_URL}/public/login`, {
         userName,
         password,
       });
@@ -32,7 +34,8 @@ const Login = () => {
       if (e.response && e.response.status === 400) {
         toast.error("Invalid credentials");
       } else {
-        console.error(e);
+        // console.error(e);
+        console.error(`${process.env.API_URL}`)
         toast.error("An error occurred");
       }
     }
@@ -67,7 +70,7 @@ const Login = () => {
     setSendOtp(generatedOtp); // Change: Set OTP state
     let response = null;
     try {
-      response = await axios.post("http://localhost:8080/email/forgot-send", {
+      response = await axios.post(`${API_URL}/email/forgot-send`, {
         userName,
         to: email,
         subject: "Your One-Time Password (OTP) for Account Verification",
@@ -85,7 +88,10 @@ const Login = () => {
 
                 Paste App`,
       });
-      if (response.status === 200) toast.success("Email sent Succesfully");
+      if (response.status === 200){
+         toast.success("Email sent Succesfully");
+         SetVerify(true);
+      }
     } catch (error) {
       if (error.response.status === 404) {
         toast.error("UserName and email not Match");
@@ -96,12 +102,17 @@ const Login = () => {
   }
 
   async function handleEmailVerify(e) {
+    if(verify===false) {
+      toast.error("Fill the credential first");
+      return;
+    }
     if (sendOtp === otp.join("")) {
       SetResetPass(true);
       SetForgotPass(false);
     } else {
       toast.error("Incorrect Password");
     }
+    SetVerify(false);
   }
 
   async function handleChangePass() {
@@ -109,7 +120,7 @@ const Login = () => {
     if (password == Repassword) {
       try {
         response = await axios.post(
-          "http://localhost:8080/public/change-password",
+          `${API_URL}/public/change-password`,
           {
             email: email,
             password: password,
