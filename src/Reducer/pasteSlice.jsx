@@ -13,16 +13,22 @@ const API_URL = import.meta.env.VITE_API_URL;
 //get all pastes
 export const fetchPastes = createAsyncThunk(
     'paste/fetchPastes',
-    async () => {
-        const token = localStorage.getItem('token');
-        const response = await axios.get(`${API_URL}/paste`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
+    
+        async () => {
+            const token = localStorage.getItem('token');
+            try{
+            const response = await axios.get(`${API_URL}/paste`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
-            }
-        )
-        return response.data;
+            )
+            return response.data;
+        }
+        catch(error){
+            throw error;
+        }
     }
 );
 
