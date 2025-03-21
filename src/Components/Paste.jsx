@@ -15,13 +15,10 @@ const Paste = () => {
   const pastes = useSelector((state) => state.paste.pastes);
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading,setLoading]=useState(false);
+
   useEffect(() => {
-    if (pastes.length===0 && loading===false) { 
         dispatch(fetchPastes());
-        setLoading(true);
-    }else setLoading(false);
-}, [dispatch, pastes.length]);
+}, [dispatch]);
   
   const filteredData = pastes.filter((paste) => paste.title.toLowerCase().includes(searchTerm.toLowerCase()));
 

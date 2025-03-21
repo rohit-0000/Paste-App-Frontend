@@ -101,6 +101,7 @@ export const pasteSlice = createSlice({
             .addCase(fetchPastes.fulfilled, (state, action) => {
                 state.loading=false;
                 state.pastes = action.payload;
+                // console.error(action.payload);
             })
             .addCase(fetchPastes.pending,(state,action)=>{
                 state.loading=true;

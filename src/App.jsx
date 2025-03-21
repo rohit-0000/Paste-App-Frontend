@@ -106,15 +106,9 @@ function App() {
   // console.error(loading);
   return (
     <div>
-      {
-        loading? <div>
-          <RouterProvider router={router} />
-          <Loading/>
-        </div>
-        :
-        <RouterProvider router={router} />
-      } 
-    </div>
+    <RouterProvider router={router} />
+    {loading && <Loading />}
+  </div>
   );
 }
 

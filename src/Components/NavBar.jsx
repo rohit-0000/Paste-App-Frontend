@@ -28,9 +28,7 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    if (Object.keys(user).length === 0) { 
         dispatch(fetchUser());
-    }
 }, [dispatch]);
 
 
